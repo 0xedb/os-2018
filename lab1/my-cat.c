@@ -4,6 +4,7 @@
  * Author: 	Bruno Edoh
  * GitHub: 	https://github.com/theBashShell
  * Date: Sep-06-18
+ * Part 1
  * */
  
 #include <stdio.h>
@@ -12,8 +13,7 @@
 int main(int argc, char* argv[]) {
 	
 	// Required Checks
-	if(argc < 2) {
-		printf("Missing filename(s)!\n");
+	if(argc < 2) { 
 		return EXIT_FAILURE;
 	}
 	
@@ -23,8 +23,7 @@ int main(int argc, char* argv[]) {
 	FILE* file_to_open = fopen(argv[i], "r");
 	
 	if(!file_to_open) {
-		printf("Unable to open file: '%s'\n", argv[i]);
-		printf("File probably doesn't exist\n");
+		printf("my-cat: cannot open file\n"); 
 		return EXIT_FAILURE;
 	}	
 		
@@ -33,16 +32,16 @@ int main(int argc, char* argv[]) {
 	while((check = fgetc(file_to_open)) != EOF) {
 		putchar(check);		
 	}
-	
-	printf("\n\n");	// separated the files
+	 
 	
 	if(ferror(file_to_open)) {
-		puts("Error Encountered");
+		puts("Error Encountered\n");
 	}
 	
 	fclose(file_to_open);
-	
+			
 	}
 	
+	return 0;
 }
 
